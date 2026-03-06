@@ -1,4 +1,7 @@
 # Diagram for https://fullstackopen.com/en/part0/fundamentals_of_web_apps exercise 0.4: New note diagram
+In old traditional web apps the server sends backs the page result in HTML. For example if you have a <form action ="notes" method="post">.
+After that the user has filled in a new note the browser send a "Form POST request" to the server. The server sends back again a HTML page result.
+The page load always total new.
 
 ```mermaid
 sequenceDiagram
