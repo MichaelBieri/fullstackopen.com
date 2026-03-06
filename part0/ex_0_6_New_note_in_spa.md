@@ -1,3 +1,9 @@
+# 0.6: New note in Single page app diagram
+In single page applications with jQuery/ajax the browser sends a GET request to the server.
+At the first time the server send back a HTML page result. On the page is also a <form> but no action.
+Instead there is a <script> ajax.post part which handle the update. After the user filled a note the ajax
+sends a ajax POST request. Instead of a HTML the server just sends back JSON. In the code is PUT and success function.
+
 ```mermaid
 sequenceDiagram
     participant U as User
