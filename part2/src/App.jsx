@@ -251,6 +251,8 @@ export default App
 */
 
 // part2 exercise 2.4
+
+/*
 import { useState } from 'react'
 
 const App = () => {
@@ -277,10 +279,8 @@ const App = () => {
 
   return (
     <div>
-      {/* Headerh1 always at the top */}
       <Headerh1 />
 
-      {/* for each course they render a course component */}
       {courses.map(course => (
         <Course key={course.id} course={course} />
       ))}
@@ -321,6 +321,35 @@ const Part = ({ part }) => (
 const Total = ({ parts }) => {
   const total = parts.reduce((sum, part) => sum + part.exercises, 0)
   return <p><strong>Number of exercises {total}</strong></p>
+}
+
+export default App
+*/
+
+// part2 exercise 2.6
+import { useState } from 'react'
+
+const App = () => {
+  const [persons, setPersons] = useState([
+    { name: 'Arto Hellas' }
+  ]) 
+  const [newName, setNewName] = useState('')
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <form>
+        <div>
+          name: <input />
+        </div>
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+      <h2>Numbers</h2>
+      <div>debug: {newName}</div>
+    </div>
+  )
 }
 
 export default App
