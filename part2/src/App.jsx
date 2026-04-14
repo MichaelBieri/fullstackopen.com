@@ -330,15 +330,14 @@ export default App
 import { useState } from 'react'
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: 'Arto Hellas' }
+  const [persons, setPersons] = useState([ //persons is the state variable that holds the array of person objects, and setPersons is the function used to update that state. The initial state is set to an array with one object that has a name property.
   ]) 
   const [newName, setNewName] = useState('')
 
   const addPerson = (e) => {
     e.preventDefault()
-    setPersons([...persons, { name: newName }])
-    setNewName('')
+    setPersons([...persons, { name: newName }]) //...means to copy the existing array and add a new object with the name property set to newName
+    setNewName('') // Clear the input field after adding a person
   }
 
   return (
@@ -352,7 +351,7 @@ const App = () => {
           <button type="submit">add</button>
         </div>
       </form>
-      <h2>Numbers</h2>
+      <h2>person+number</h2>
       <ul>
         {persons.map((person, index) => (
           <li key={index}>{person.name}</li>
