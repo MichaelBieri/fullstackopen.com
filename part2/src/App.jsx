@@ -1,6 +1,5 @@
 /*
 // part2 exercise 2.1
-import Note from './components/Note'
 import { useState } from 'react'
 
 const App = () => {
@@ -34,6 +33,7 @@ const Course = ({ course }) => {
     <div>
       <Header name={course.name} />
       <Content parts={course.parts} />
+      <Total parts={course.parts} />
     </div>
   )
 }
@@ -45,9 +45,7 @@ const Header = ({ name }) => {
 const Content = ({ parts }) => {
   return (
     <div>
-      <Part part={parts[0]} />
-      <Part part={parts[1]} />
-      <Part part={parts[2]} />
+      {parts.map(part => <Part key={part.id} part={part} />)}
     </div>
   )
 }
@@ -58,6 +56,11 @@ const Part = ({ part }) => {
       {part.name} {part.exercises}
     </p>
   )
+}
+
+const Total = ({ parts }) => {
+  const total = parts.reduce((sum, part) => sum + part.exercises, 0)
+  return <p>Number of exercises {total}</p>
 }
 
 export default App
@@ -327,6 +330,7 @@ export default App
 */
 
 // part2 exercise 2.6
+/*
 import { useState } from 'react'
 
 const App = () => {
@@ -362,3 +366,203 @@ const App = () => {
 }
 
 export default App
+
+*/
+
+
+
+
+
+
+/*
+// part2 exercise 2.7
+import { useState } from 'react'
+
+
+const App = () => {
+  const [persons, setPersons] = useState([ //persons is the state variable that holds the array of person objects, and setPersons is the function used to update that state. The initial state is set to an array with one object that has a name property.
+  ]) 
+  const [newName, setNewName] = useState('')
+
+const addPerson = (e) => {
+  e.preventDefault()
+
+  // Check if name already exists
+  const exists = persons.some(
+    (person) => person.name.toLowerCase() === newName.toLowerCase()
+  )
+
+  if (exists) {
+    alert(`${newName} is already added to the phonebook`)
+    return
+  }
+
+  // Add new person if not duplicate
+  setPersons([...persons, { name: newName }])
+  setNewName('')
+}
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <form onSubmit={addPerson}>
+        <div>
+          name: <input value={newName} onChange={(e) => setNewName(e.target.value)} />
+        </div>
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+      <h2>person+number</h2>
+      <ul>
+        {persons.map((person, index) => (
+          <li key={index}>{person.name}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default App
+*/
+¨
+/*
+//part2 exercise 2.8
+import { useState } from 'react'
+
+const App = () => {
+  const [persons, setPersons] = useState([])
+  const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
+
+  const addPerson = (e) => {
+    e.preventDefault()
+
+    const exists = persons.some(
+      (person) => person.name.toLowerCase() === newName.toLowerCase()
+    )
+
+    if (exists) {
+      alert(`${newName} is already added to the phonebook`)
+      return
+    }
+
+    setPersons([...persons, { name: newName, number: newNumber }])
+
+    setNewName('')
+    setNewNumber('')
+  }
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <form onSubmit={addPerson}>
+        <div>
+          name:
+          <input
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+          />
+        </div>
+
+        <div>
+          number:
+          <input
+            value={newNumber}
+            onChange={(e) => setNewNumber(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+
+      <h2>Numbers</h2>
+
+      <ul>
+        {persons.map((person, index) => (
+          <li key={index}>
+            {person.name} - {person.number}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default App
+*/
+
+/*
+//part2 exercise 2.9
+import { useState } from 'react'
+
+  const [persons, setPersons] = useState([
+    { name: 'Arto Hellas', number: '040-123456', id: 1 },
+    { name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
+    { name: 'Dan Abramov', number: '12-43-234345', id: 3 },
+    { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 }
+  const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
+    ])
+
+  const addPerson = (e) => {
+    e.preventDefault()
+
+    const exists = persons.some(
+      (person) => person.name.toLowerCase() === newName.toLowerCase()
+    )
+
+    if (exists) {
+      alert(`${newName} is already added to the phonebook`)
+      return
+    }
+
+    setPersons([...persons, { name: newName, number: newNumber }])
+
+    setNewName('')
+    setNewNumber('')
+  }
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <form onSubmit={addPerson}>
+        <div>
+          name:
+          <input
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+          />
+        </div>
+
+        <div>
+          number:
+          <input
+            value={newNumber}
+            onChange={(e) => setNewNumber(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+
+      <h2>Numbers</h2>
+
+      <ul>
+        {persons.map((person, index) => (
+          <li key={index}>
+            {person.name} - {person.number}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default App
+*/
+
