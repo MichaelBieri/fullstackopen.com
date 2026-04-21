@@ -495,6 +495,7 @@ export default App
 
 
 //part2 exercise 2.9
+/*
 import { useState } from 'react'
 
 function App() {
@@ -561,3 +562,15 @@ function App() {
 }
 
 export default App
+*/
+
+// exercise 2.10
+// Maintain the application's state and all event handlers in the App root component.
+// Separate search filter, form to add new people, a component to render all people and a component to render a single person into separate components. Pass the necessary data and event handlers as props to the child components.
+
+import { useState } from 'react'
+
+import PersonForm from './components/PersonForm'
+import Filter from './components/Filter'
+import Persons from './components/Persons'
+
